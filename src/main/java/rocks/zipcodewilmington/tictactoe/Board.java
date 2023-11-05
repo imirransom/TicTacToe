@@ -3,42 +3,44 @@ package rocks.zipcodewilmington.tictactoe;
 /**
  * @author leon on 6/22/18.
  */
+
 public class Board {
+
+    private Character[][] matrix;
     public Board(Character[][] matrix) {
+        this.matrix = matrix;
     }
 
-    Boolean columnWinX(String input) {
+    Boolean columnWinX() {
         Boolean winOrLose = false;
-        char[] chars = input.toCharArray();
-        for (char c : chars){
-            if (c == 'x') {
+        for (int i = 0; i < matrix.length; i++){
+            if (matrix[0].equals('x') && matrix[1].equals('x') && matrix[2].equals('x')){
                 winOrLose = true;
             } else {
                 winOrLose = false;
             }
         }
-        return  winOrLose;
+        return winOrLose;
     }
 
-    Boolean columnWinO(String input) {
+    Boolean columnWinO() {
         Boolean winOrLose = false;
-        char[] chars = input.toCharArray();
-        for (char c : chars){
-            if (c == 'o') {
+        for (int i = 0; i < matrix.length; i++){
+            if (matrix[0].equals('o') && matrix[1].equals('o') && matrix[2].equals('o')){
                 winOrLose = true;
-            } else {
+            } else{
                 winOrLose = false;
             }
         }
-        return  winOrLose;
+        return winOrLose;
     }
 
     public Boolean isInFavorOfX() {
-        return columnWinX("xxx");
+        return columnWinX();
     }
 
     public Boolean isInFavorOfO() {
-        return columnWinO("ooo");
+        return columnWinO();
     }
 
     public Boolean isTie() {
