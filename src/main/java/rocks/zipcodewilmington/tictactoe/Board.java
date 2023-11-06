@@ -14,10 +14,8 @@ public class Board {
     Boolean columnWinX() {
         Boolean winOrLose = false;
         for (int i = 0; i < matrix.length; i++){
-            if (matrix[0].equals('x') && matrix[1].equals('x') && matrix[2].equals('x')){
+            if (matrix[i][0] == ('x') && matrix[i][1] == ('x') && matrix[i][2] == ('x')){
                 winOrLose = true;
-            } else {
-                winOrLose = false;
             }
         }
         return winOrLose;
@@ -26,10 +24,8 @@ public class Board {
     Boolean columnWinO() {
         Boolean winOrLose = false;
         for (int i = 0; i < matrix.length; i++){
-            if (matrix[0].equals('o') && matrix[1].equals('o') && matrix[2].equals('o')){
+            if (matrix[i][0] == ('o') && matrix[i][1] == ('o') && matrix[i][2] == ('o')){
                 winOrLose = true;
-            } else{
-                winOrLose = false;
             }
         }
         return winOrLose;
@@ -44,7 +40,13 @@ public class Board {
     }
 
     public Boolean isTie() {
-        return null;
+        Boolean tie = false;
+        for (int i = 0; i < matrix.length; i++){
+            if (matrix[i][0] != ('o') && matrix[i][1] != ('o') && matrix[i][2] != ('o')){
+                tie = true;
+            }
+        }
+        return tie;
     }
 
     public String getWinner() {
